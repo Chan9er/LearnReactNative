@@ -16,6 +16,8 @@ export default function App() {
   const [testMenuItemModalVisible, setTestMenuItemModalVisible] =
     useState(false);
 
+  console.log('[App] render');
+
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar style="auto" />

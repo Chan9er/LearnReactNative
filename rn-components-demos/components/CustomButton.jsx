@@ -2,6 +2,8 @@ import React from 'react';
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 
 const CustomButton = ({ label, onPress, buttonStyles, labelStyles }) => {
+  console.log('[CustomButton] render');
+
   return (
     <TouchableOpacity style={[styles.root, buttonStyles]} onPress={onPress}>
       <Text style={[styles.label, labelStyles]}>{label}</Text>
