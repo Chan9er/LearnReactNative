@@ -10,33 +10,33 @@ import { useDispatch } from 'react-redux';
 import { addItem } from '../store/actions/item';
 
 const ItemForm = ({ navigation }) => {
-  const [food, setFood] = useState('');
+  const [itemName, setItemName] = useState('');
 
   const dispatch = useDispatch();
 
-  const submitFood = item => dispatch(addItem(item));
+  const submit = item => dispatch(addItem(item));
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Redux</Text>
       <TextInput
-        value={food}
+        value={itemName}
         placeholder="Name"
-        style={styles.foodInput}
-        onChangeText={food => setFood(food)}
+        style={styles.textInput}
+        onChangeText={item => setItemName(item)}
       />
       <TouchableOpacity
-        style={{ marginBottom: 16 }}
+        style={styles.textContainer}
         onPress={() => {
-          submitFood(food);
-          setFood('');
+          submit(itemName);
+          setItemName('');
         }}>
-        <Text style={{ fontSize: 22, color: '#5fc9f8' }}>Submit</Text>
+        <Text style={styles.submitLabel}>Submit</Text>
       </TouchableOpacity>
       <TouchableOpacity
-        style={{ marginBottom: 16 }}
+        style={styles.textContainer}
         onPress={() => navigation.navigate('ItemList')}>
-        <Text style={{ fontSize: 22, color: 'white' }}>Go to ItemList</Text>
+        <Text style={styles.submitLabel}>Go to ItemList</Text>
       </TouchableOpacity>
     </View>
   );
@@ -50,12 +50,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   title: {
-    fontSize: 48,
+    fontSize: 36,
     marginBottom: 30,
     marginTop: 16,
     color: 'white',
   },
-  foodInput: {
+  textInput: {
     fontSize: 24,
     marginBottom: 32,
     borderWidth: 1,
@@ -71,6 +71,8 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderRadius: 100,
   },
+  textContainer: { marginBottom: 16 },
+  submitLabel: { fontSize: 22, color: '#5fc9f8' },
 });
 
 export default ItemForm;

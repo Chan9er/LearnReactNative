@@ -17,10 +17,7 @@ const ItemList = () => {
       keyExtractor={(item, index) => item.key.toString()}
       renderItem={data => (
         <TouchableOpacity onPress={() => deleteCurrent(data.item.key)}>
-          <Text
-            style={{ borderColor: 'dodgerblue', borderWidth: 1, height: 24 }}>
-            {data.item.name}
-          </Text>
+          <Text style={styles.itemName}>{data.item.name}</Text>
         </TouchableOpacity>
       )}
     />
@@ -34,6 +31,7 @@ const styles = StyleSheet.create({
   listText: {
     fontSize: 30,
   },
+  itemName: { borderColor: 'dodgerblue', borderWidth: 1, height: 24 },
 });
 
 export default ItemList;

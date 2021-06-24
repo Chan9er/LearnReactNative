@@ -1,6 +1,6 @@
-export const addItem = food => ({
+export const addItem = item => ({
   type: ADD_ITEM,
-  data: food,
+  data: item,
 });
 
 export const deleteItem = key => ({
