@@ -1,21 +1,16 @@
-import { StatusBar } from 'expo-status-bar';
+import 'react-native-gesture-handler';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+
+import RootNavigator from './src/navigators/RootNavigator';
+import { FoodProvider } from './src/providers/FoodProvider';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Hello Redux!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <FoodProvider>
+      <NavigationContainer>
+        <RootNavigator />
+      </NavigationContainer>
+    </FoodProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
