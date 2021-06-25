@@ -1,22 +1,14 @@
 import React from 'react';
 import { StyleSheet, FlatList, Text, TouchableOpacity } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
-import { deleteItem } from '../store/actions/item';
 
-const ItemList = () => {
-  const dispatch = useDispatch();
-
-  const deleteCurrent = key => dispatch(deleteItem(key));
-
-  const items = useSelector(state => state.item.itemList);
-
+const ItemListScreen = () => {
   return (
     <FlatList
       style={styles.listContainer}
-      data={items}
+      data={[]}
       keyExtractor={(item, index) => item.key.toString()}
       renderItem={data => (
-        <TouchableOpacity onPress={() => deleteCurrent(data.item.key)}>
+        <TouchableOpacity onPress={() => console.log(' pressed')}>
           <Text style={styles.itemName}>{data.item.name}</Text>
         </TouchableOpacity>
       )}
@@ -34,4 +26,4 @@ const styles = StyleSheet.create({
   itemName: { borderColor: 'dodgerblue', borderWidth: 1, height: 24 },
 });
 
-export default ItemList;
+export default ItemListScreen;

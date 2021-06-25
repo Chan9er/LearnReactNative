@@ -6,15 +6,9 @@ import {
   Text,
   TouchableOpacity,
 } from 'react-native';
-import { useDispatch } from 'react-redux';
-import { addItem } from '../store/actions/item';
 
-const ItemForm = ({ navigation }) => {
+const ItemFormScreen = ({ navigation }) => {
   const [itemName, setItemName] = useState('');
-
-  const dispatch = useDispatch();
-
-  const submit = item => dispatch(addItem(item));
 
   return (
     <View style={styles.container}>
@@ -28,7 +22,6 @@ const ItemForm = ({ navigation }) => {
       <TouchableOpacity
         style={styles.textContainer}
         onPress={() => {
-          submit(itemName);
           setItemName('');
         }}>
         <Text style={styles.submitLabel}>Submit</Text>
@@ -75,4 +68,4 @@ const styles = StyleSheet.create({
   submitLabel: { fontSize: 22, color: '#5fc9f8' },
 });
 
-export default ItemForm;
+export default ItemFormScreen;
