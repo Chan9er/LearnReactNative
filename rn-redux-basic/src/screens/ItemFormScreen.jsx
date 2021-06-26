@@ -7,8 +7,14 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
+import { useDispatch } from 'react-redux';
+import { addItem } from './../store/actions/item';
+
 const ItemFormScreen = ({ navigation }) => {
   const [itemName, setItemName] = useState('');
+
+  const dispatch = useDispatch();
+  const submit = item => dispatch(addItem(item));
 
   return (
     <View style={styles.container}>
@@ -23,6 +29,7 @@ const ItemFormScreen = ({ navigation }) => {
         style={styles.textContainer}
         onPress={() => {
           setItemName('');
+          submit(itemName);
         }}>
         <Text style={styles.submitLabel}>Submit</Text>
       </TouchableOpacity>
